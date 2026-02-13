@@ -28,7 +28,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 120px); /* leave space for title */
+  height: calc(100vh - 120px);
 }
 
 /* grid container */
@@ -37,15 +37,19 @@ h1 {
   gap: 30px;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
-/* each game box */
-.grid a {
+/* each game box container */
+.grid .game-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-decoration: none;
+}
+
+/* box itself */
+.grid .game-box a {
+  display: flex;
   width: 150px;
   height: 150px;
   border: 4px solid #637ceb; /* thicker border */
@@ -54,21 +58,20 @@ h1 {
   transition: transform 0.2s;
 }
 
-.grid a:hover {
+.grid .game-box a:hover {
   transform: scale(1.05);
 }
 
-/* the image fills the entire box */
-.grid img {
+/* image fills box */
+.grid .game-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
   border-radius: 15px;
 }
 
-/* game title under the image */
-.grid a p {
+/* title under the box */
+.grid .game-box p {
   margin-top: 8px;
   text-align: center;
   color: #fff;
