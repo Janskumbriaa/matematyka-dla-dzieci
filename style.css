@@ -1,8 +1,12 @@
+:root {
+  --main-color: #637ceb; /* main blue color */
+}
+
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* hide blobs overflow */
+  overflow: hidden; /* hide scrollbars for floating dots */
 }
 
 body {
@@ -11,20 +15,35 @@ body {
   color: #ffffff;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  position: relative; /* for blobs */
+  position: relative; /* for floating dots */
+}
+
+/* floating dots background */
+.dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--main-color);
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: floatUp 10s linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(100vh) scale(0.5); opacity: 0.4; }
+  50% { opacity: 0.7; }
+  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
 }
 
 /* floating page title pill */
 h1 {
-  margin-bottom: 40px;
+  margin: 30px 0;
   background: #161515;
   padding: 15px 30px;
   border-radius: 25px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-  z-index: 2;
-  position: relative;
 }
 
 /* wrapper to center the grid */
@@ -32,9 +51,8 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 120px);
-  z-index: 2;
-  position: relative;
+  flex: 1;
+  width: 100%;
 }
 
 /* grid container */
@@ -58,14 +76,15 @@ h1 {
   display: flex;
   width: 150px;
   height: 150px;
-  border: 4px solid #637ceb; /* thicker border */
+  border: 4px solid var(--main-color); /* thicker border */
   border-radius: 15px;
   overflow: hidden;
-  transition: transform 0.2s;
+  transition: transform 0.2s, box-shadow 0.3s;
 }
 
 .grid .game-box a:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 20px var(--main-color);
 }
 
 /* image fills box */
@@ -82,36 +101,4 @@ h1 {
   text-align: center;
   color: #fff;
   font-weight: bold;
-}
-
-/* blobs background */
-.blob {
-  position: absolute;
-  border-radius: 50%;
-  background: #637ceb;
-  opacity: 0.3;
-  animation: blobMove 20s infinite alternate;
-}
-
-@keyframes blobMove {
-  0% {
-    transform: translate(0px,0px) scale(1);
-    border-radius: 40% 60% 60% 40% / 50% 30% 70% 50%;
-  }
-  25% {
-    transform: translate(50px, -30px) scale(1.2);
-    border-radius: 60% 40% 50% 50% / 30% 60% 40% 70%;
-  }
-  50% {
-    transform: translate(-40px, 40px) scale(1);
-    border-radius: 50% 50% 30% 70% / 60% 40% 50% 50%;
-  }
-  75% {
-    transform: translate(30px, -50px) scale(1.1);
-    border-radius: 70% 30% 50% 50% / 50% 70% 40% 60%;
-  }
-  100% {
-    transform: translate(0px, 0px) scale(1);
-    border-radius: 40% 60% 60% 40% / 50% 30% 70% 50%;
-  }
 }
