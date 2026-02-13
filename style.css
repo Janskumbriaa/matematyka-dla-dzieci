@@ -14,16 +14,21 @@ body {
   align-items: center;     /* horizontal center */
 }
 
+/* floating title pill */
 h1 {
   margin-bottom: 30px;
+  background: #161515; /* slightly darker than background */
+  padding: 15px 30px;
+  border-radius: 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
-/* wrapper to center the grid in middle */
+/* wrapper to center the grid */
 .grid-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 100px); /* takes remaining space minus title */
+  height: calc(100vh - 100px); /* leave space for title */
 }
 
 /* grid container */
@@ -49,16 +54,18 @@ h1 {
   border-radius: 15px;
   box-sizing: border-box;
   transition: transform 0.2s;
+  overflow: hidden; /* this keeps images inside the box */
 }
 
+/* hover effect */
 .grid a:hover {
   transform: scale(1.05);
 }
 
 /* game images */
 .grid img {
-  width: 80%;
-  height: 80%;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
   border-radius: 12px;
   display: block;
