@@ -14,10 +14,10 @@ body {
   align-items: center;     /* horizontal center */
 }
 
-/* floating title pill */
+/* floating page title pill */
 h1 {
-  margin-bottom: 30px;
-  background: #161515; /* slightly darker than background */
+  margin-bottom: 40px;
+  background: #161515;
   padding: 15px 30px;
   border-radius: 25px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.5);
@@ -28,45 +28,49 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 100px); /* leave space for title */
+  height: calc(100vh - 120px); /* leave space for title */
 }
 
 /* grid container */
 .grid {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
 
-/* game boxes */
+/* each game box */
 .grid a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  text-decoration: none;
   width: 150px;
   height: 150px;
-  text-decoration: none;
-  color: #fff;
-  border: 2px solid #637ceb;
-  border-radius: 25px;
-  box-sizing: border-box;
+  border: 4px solid #637ceb; /* thicker border */
+  border-radius: 15px;
+  overflow: hidden;
   transition: transform 0.2s;
-  overflow: hidden; /* this keeps images inside the box */
 }
 
-/* hover effect */
 .grid a:hover {
   transform: scale(1.05);
 }
 
-/* game images */
+/* the image fills the entire box */
 .grid img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
+  border-radius: 15px;
+}
+
+/* game title under the image */
+.grid a p {
+  margin-top: 8px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
 }
