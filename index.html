@@ -9,7 +9,6 @@
 
   <div class="grid-wrapper">
     <div class="grid">
-
       <div class="game-box">
         <a href="deeeep.io.html">
           <img src="thumb-deeeep.png" alt="deeeep.io thumbnail">
@@ -23,16 +22,20 @@
         </a>
         <p>mope.io</p>
       </div>
-
     </div>
   </div>
 
-  <!-- blobs in the background -->
-  <div class="blob" style="width:200px; height:200px; top:10%; left:15%; animation-delay: 0s;"></div>
-  <div class="blob" style="width:250px; height:250px; top:50%; left:5%; animation-delay: 5s;"></div>
-  <div class="blob" style="width:150px; height:150px; top:20%; left:70%; animation-delay: 2s;"></div>
-  <div class="blob" style="width:180px; height:180px; top:70%; left:60%; animation-delay: 8s;"></div>
-  <div class="blob" style="width:220px; height:220px; top:60%; left:30%; animation-delay: 4s;"></div>
-
+  <!-- floating dots background -->
+  <script>
+    const dotCount = 30; // number of floating dots
+    for(let i=0; i<dotCount; i++){
+      const dot = document.createElement('div');
+      dot.className = 'dot';
+      dot.style.left = Math.random()*100 + 'vw';
+      dot.style.animationDuration = (5 + Math.random()*10) + 's';
+      dot.style.width = dot.style.height = (5 + Math.random()*10) + 'px';
+      document.body.appendChild(dot);
+    }
+  </script>
 </body>
 </html>
