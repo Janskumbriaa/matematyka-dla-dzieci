@@ -1,49 +1,49 @@
-body{ 
-  font-family:sans-serif; 
-  text-align:center; 
-  background:#1c1b1b; 
-  color:#ffffff; 
-  margin:0; 
-  padding:20px;
+body {
+  font-family: sans-serif;
+  background: #1c1b1b;
+  color: #ffffff;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers the grid horizontally */
 }
 
-h1{ margin-bottom:30px; }
-
-.grid{ 
-  display:flex; 
-  gap:20px; 
-  justify-content:center; 
-  flex-wrap:wrap; 
-  align-items:center; /* vertically center if needed */
+h1 {
+  margin-bottom: 30px;
 }
 
-/* game box style */
-.grid a{ 
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-decoration:none; 
-  color:#fff; 
-  width:150px; 
-  height:150px; 
-  padding:5px;
-  border:2px solid #637ceb; /* all borders same color */
-  border-radius:15px; 
+.grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center; /* centers the grid horizontally */
+}
+
+.grid a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  text-decoration: none;
+  color: #fff;
+  border: 2px solid #637ceb;
+  border-radius: 15px;
+  padding: 10px;
+  box-sizing: border-box;
   transition: transform 0.2s;
-  box-sizing:border-box;
 }
 
-/* hover effect */
-.grid a:hover{ 
-  transform: scale(1.05); 
+.grid a:hover {
+  transform: scale(1.05);
 }
 
-/* thumbnail style (fit inside square) */
-.grid img{ 
-  max-width:90%;  /* smaller than container to fit nicely */
-  max-height:90%; /* keep it inside the box */
-  object-fit:contain; 
-  border-radius:12px; 
-  margin-bottom:5px;
+.grid img {
+  width: auto;
+  height: 80%; /* fits nicely inside the box */
+  max-width: 80%; /* prevents overflow */
+  object-fit: contain;
+  border-radius: 12px;
 }
