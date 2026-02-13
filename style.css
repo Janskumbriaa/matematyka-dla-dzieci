@@ -18,6 +18,7 @@ body {
   justify-content: flex-start;
   align-items: center;
   position: relative; /* for floating dots */
+  z-index: 0;
 }
 
 /* floating dots background */
@@ -28,7 +29,9 @@ body {
   background: var(--main-color);
   border-radius: 50%;
   opacity: 0.6;
+  filter: blur(3px); /* subtle glow */
   animation: floatUp 10s linear infinite;
+  z-index: 0; /* behind everything */
 }
 
 @keyframes floatUp {
@@ -44,6 +47,8 @@ h1 {
   padding: 15px 30px;
   border-radius: 25px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  z-index: 1; /* above dots */
+  position: relative;
 }
 
 /* wrapper to center the grid */
@@ -53,6 +58,8 @@ h1 {
   align-items: center;
   flex: 1;
   width: 100%;
+  z-index: 1; /* above dots */
+  position: relative;
 }
 
 /* grid container */
