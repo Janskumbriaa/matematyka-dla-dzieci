@@ -22,7 +22,7 @@ h1{ margin-bottom:30px; }
   color:#fff; 
   padding:10px; 
   border:2px solid #fff; 
-  width:150px; /* size of the square */
+  width:150px;
   transition: transform 0.2s;
 }
 
@@ -31,8 +31,8 @@ h1{ margin-bottom:30px; }
 }
 
 .grid img{ 
-  width:100%; /* fill the square container */
-  height:150px; /* force height = width to keep square shape */
-  object-fit:cover; /* crop/scale without distortion */
+  width:150px; 
+  height:150px;  /* force square! */
+  object-fit:cover; 
   margin-bottom:5px;
 }
