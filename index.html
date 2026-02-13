@@ -27,7 +27,7 @@
 
   <!-- floating dots background -->
   <script>
-    const dotCount = 30; // number of floating dots
+    const dotCount = 30;
     for(let i=0; i<dotCount; i++){
       const dot = document.createElement('div');
       dot.className = 'dot';
@@ -35,7 +35,6 @@
       dot.style.animationDuration = (5 + Math.random()*10) + 's';
       const size = 5 + Math.random()*10;
       dot.style.width = dot.style.height = size + 'px';
-      dot.style.zIndex = 0; // behind everything
       document.body.appendChild(dot);
     }
   </script>
