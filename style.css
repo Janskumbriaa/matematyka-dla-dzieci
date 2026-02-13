@@ -1,41 +1,45 @@
-/* center everything vertically and horizontally */
+/* full page centered */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: sans-serif;
   background: #1c1b1b;
   color: #ffffff;
-  margin: 0;
-  padding: 0;
-  height: 100vh; /* full viewport height */
   display: flex;
   flex-direction: column;
-  justify-content: center; /* center vertically */
-  align-items: center; /* center horizontally */
+  justify-content: center; /* vertical center */
+  align-items: center;     /* horizontal center */
 }
 
+/* title */
 h1 {
   margin-bottom: 30px;
 }
 
-/* grid container */
+/* game grid container */
 .grid {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
   justify-content: center; /* horizontal center */
-  align-items: center; /* vertical center for each row */
+  align-items: center;
 }
 
 /* individual game box */
 .grid a {
   display: flex;
   flex-direction: column;
-  align-items: center; /* center image horizontally */
-  justify-content: center; /* center image vertically */
+  align-items: center;       /* center horizontally */
+  justify-content: center;   /* center vertically */
   width: 150px;
   height: 150px;
   text-decoration: none;
   color: #fff;
-  border: 2px solid #637ceb;
+  border: 2px solid #637ceb; /* all borders same color */
   border-radius: 15px;
   box-sizing: border-box;
   transition: transform 0.2s;
@@ -46,11 +50,11 @@ h1 {
   transform: scale(1.05);
 }
 
-/* thumbnail image inside the square */
+/* thumbnail images */
 .grid img {
-  width: auto;       /* keeps aspect ratio */
-  height: 80%;       /* fills most of the square vertically */
-  max-width: 80%;    /* prevents overflow horizontally */
+  width: 80%;        /* fit inside the square */
+  height: 80%;       /* fit inside the square */
   object-fit: contain;
   border-radius: 12px;
+  display: block;
 }
