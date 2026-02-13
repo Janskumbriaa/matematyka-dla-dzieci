@@ -1,7 +1,7 @@
 body{ 
   font-family:sans-serif; 
   text-align:center; 
-  background:#222; 
+  background:#1c1b1b; 
   color:#ffffff; 
   margin:0; 
   padding:20px;
@@ -14,22 +14,24 @@ h1{ margin-bottom:30px; }
   gap:20px; 
   justify-content:center; 
   flex-wrap:wrap; 
+  align-items:center; /* vertically center if needed */
 }
 
-/* default game box style */
+/* game box style */
 .grid a{ 
-  display:block; 
-  text-decoration:none; 
-  color:#fff; 
-  padding:10px; 
-  width:150px; /* square container */
-  height:150px; /* make the container square */
-  transition: transform 0.2s;
-  border-radius:15px; /* rounded edges */
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
+  text-decoration:none; 
+  color:#fff; 
+  width:150px; 
+  height:150px; 
+  padding:5px;
+  border:2px solid #637ceb; /* all borders same color */
+  border-radius:15px; 
+  transition: transform 0.2s;
+  box-sizing:border-box;
 }
 
 /* hover effect */
@@ -37,22 +39,11 @@ h1{ margin-bottom:30px; }
   transform: scale(1.05); 
 }
 
-/* default thumbnail style (fill the square) */
+/* thumbnail style (fit inside square) */
 .grid img{ 
-  width:100%; 
-  height:100%; 
-  object-fit:cover; 
-  border-radius:12px; /* rounded thumbnail edges */
+  max-width:90%;  /* smaller than container to fit nicely */
+  max-height:90%; /* keep it inside the box */
+  object-fit:contain; 
+  border-radius:12px; 
   margin-bottom:5px;
 }
-
-/* specific game borders */
-.grid a:nth-child(1){ 
-  border:2px solid #637ceb; /* deeeep.io border color */
-}
-
-.grid a:nth-child(2){ 
-  border:2px solid #637ceb; /* mope.io border color */
-}
-
-/* you can add more games by adding nth-child(3), nth-child(4) etc */
