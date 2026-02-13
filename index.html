@@ -9,6 +9,7 @@
 
   <div class="grid-wrapper">
     <div class="grid">
+      <!-- Row 1 -->
       <div class="game-box">
         <a href="deeeep.io.html">
           <img src="thumb-deeeep.png" alt="deeeep.io thumbnail">
@@ -22,6 +23,56 @@
         </a>
         <p>mope.io</p>
       </div>
+
+      <div class="game-box">
+        <a href="block-blast.html">
+          <img src="thumb-block-blast.png" alt="block blast thumbnail">
+        </a>
+        <p>Block Blast</p>
+      </div>
+
+      <div class="game-box">
+        <a href="happy-wheels.html">
+          <img src="thumb-happy-wheels.png" alt="happy wheels thumbnail">
+        </a>
+        <p>Happy Wheels</p>
+      </div>
+
+      <div class="game-box">
+        <a href="five-nights.html">
+          <img src="thumb-five-nights.png" alt="Five Nights at Freddies thumbnail">
+        </a>
+        <p>Five Nights at Freddies</p>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="game-box">
+        <a href="paper-io-3.html">
+          <img src="thumb-paper-io-3.png" alt="Paper io 3 thumbnail">
+        </a>
+        <p>Paper io 3</p>
+      </div>
+
+      <div class="game-box">
+        <a href="buckshot-roulette.html">
+          <img src="thumb-buckshot-roulette.png" alt="Buckshot Roulette thumbnail">
+        </a>
+        <p>Buckshot Roulette</p>
+      </div>
+
+      <div class="game-box">
+        <a href="slither-io.html">
+          <img src="thumb-slither-io.png" alt="Slither.io thumbnail">
+        </a>
+        <p>Slither.io</p>
+      </div>
+
+      <div class="game-box">
+        <a href="web-fishing.html">
+          <img src="thumb-web-fishing.png" alt="Web Fishing thumbnail">
+        </a>
+        <p>Web Fishing</p>
+      </div>
     </div>
   </div>
 
@@ -32,7 +83,8 @@
       const dot = document.createElement('div');
       dot.className = 'dot';
       dot.style.left = Math.random()*100 + 'vw';
-      dot.style.animationDuration = (5 + Math.random()*10) + 's';
+      const duration = 5 + Math.random()*10;
+      dot.style.animationDuration = `${duration}s, ${1+Math.random()*3}s`;
       const size = 5 + Math.random()*10;
       dot.style.width = dot.style.height = size + 'px';
       document.body.appendChild(dot);
