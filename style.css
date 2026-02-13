@@ -6,7 +6,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* hide scrollbars for floating dots */
+  overflow: hidden;
 }
 
 body {
@@ -17,26 +17,26 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  position: relative; /* for floating dots */
+  position: relative;
   z-index: 0;
 }
 
-/* floating dots background */
+/* floating dots background using box-shadow for glow */
 .dot {
   position: absolute;
   width: 8px;
   height: 8px;
   background: var(--main-color);
   border-radius: 50%;
-  opacity: 0.6;
-  filter: blur(3px); /* subtle glow */
+  opacity: 0.8;
+  box-shadow: 0 0 10px var(--main-color), 0 0 15px var(--main-color);
   animation: floatUp 10s linear infinite;
-  z-index: 0; /* behind everything */
+  z-index: 0;
 }
 
 @keyframes floatUp {
   0% { transform: translateY(100vh) scale(0.5); opacity: 0.4; }
-  50% { opacity: 0.7; }
+  50% { opacity: 0.8; }
   100% { transform: translateY(-10vh) scale(1); opacity: 0; }
 }
 
@@ -47,7 +47,7 @@ h1 {
   padding: 15px 30px;
   border-radius: 25px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-  z-index: 1; /* above dots */
+  z-index: 1;
   position: relative;
 }
 
@@ -58,7 +58,7 @@ h1 {
   align-items: center;
   flex: 1;
   width: 100%;
-  z-index: 1; /* above dots */
+  z-index: 1;
   position: relative;
 }
 
@@ -83,7 +83,7 @@ h1 {
   display: flex;
   width: 150px;
   height: 150px;
-  border: 4px solid var(--main-color); /* thicker border */
+  border: 4px solid var(--main-color);
   border-radius: 15px;
   overflow: hidden;
   transition: transform 0.2s, box-shadow 0.3s;
