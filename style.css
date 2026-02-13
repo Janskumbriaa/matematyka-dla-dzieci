@@ -1,0 +1,38 @@
+body{ 
+  font-family:sans-serif; 
+  text-align:center; 
+  background:#222; 
+  color:#fff; 
+  margin:0; 
+  padding:20px;
+}
+
+h1{ margin-bottom:30px; }
+
+.grid{ 
+  display:flex; 
+  gap:20px; 
+  justify-content:center; 
+  flex-wrap:wrap; 
+}
+
+.grid a{ 
+  display:block; 
+  text-decoration:none; 
+  color:#fff; 
+  padding:10px; 
+  border:2px solid #fff; 
+  width:150px;
+  transition: transform 0.2s;
+}
+
+.grid a:hover{ 
+  transform: scale(1.05); 
+}
+
+.grid img{ 
+  width:150px; 
+  height:100px; 
+  object-fit:cover; 
+  margin-bottom:5px;
+}
