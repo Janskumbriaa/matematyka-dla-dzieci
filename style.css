@@ -2,6 +2,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden; /* hide blobs overflow */
 }
 
 body {
@@ -10,8 +11,9 @@ body {
   color: #ffffff;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* vertical center */
-  align-items: center;     /* horizontal center */
+  justify-content: center;
+  align-items: center;
+  position: relative; /* for blobs */
 }
 
 /* floating page title pill */
@@ -21,6 +23,8 @@ h1 {
   padding: 15px 30px;
   border-radius: 25px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  z-index: 2;
+  position: relative;
 }
 
 /* wrapper to center the grid */
@@ -29,6 +33,8 @@ h1 {
   justify-content: center;
   align-items: center;
   height: calc(100vh - 120px);
+  z-index: 2;
+  position: relative;
 }
 
 /* grid container */
@@ -76,4 +82,36 @@ h1 {
   text-align: center;
   color: #fff;
   font-weight: bold;
+}
+
+/* blobs background */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  background: #637ceb;
+  opacity: 0.3;
+  animation: blobMove 20s infinite alternate;
+}
+
+@keyframes blobMove {
+  0% {
+    transform: translate(0px,0px) scale(1);
+    border-radius: 40% 60% 60% 40% / 50% 30% 70% 50%;
+  }
+  25% {
+    transform: translate(50px, -30px) scale(1.2);
+    border-radius: 60% 40% 50% 50% / 30% 60% 40% 70%;
+  }
+  50% {
+    transform: translate(-40px, 40px) scale(1);
+    border-radius: 50% 50% 30% 70% / 60% 40% 50% 50%;
+  }
+  75% {
+    transform: translate(30px, -50px) scale(1.1);
+    border-radius: 70% 30% 50% 50% / 50% 70% 40% 60%;
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+    border-radius: 40% 60% 60% 40% / 50% 30% 70% 50%;
+  }
 }
