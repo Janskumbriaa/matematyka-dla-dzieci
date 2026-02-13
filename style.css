@@ -2,37 +2,38 @@ body{
   font-family:sans-serif; 
   text-align:center; 
   background:#222; 
-  color:#fff; 
+  color:#4e1caa; 
   margin:0; 
   padding:20px;
 }
 
 h1{ margin-bottom:30px; }
 
-.grid{ 
+/* first grid */
+.grid, .grid2{   /* added .grid2 so any second grid inherits the same style */
   display:flex; 
   gap:20px; 
   justify-content:center; 
   flex-wrap:wrap; 
 }
 
-.grid a{ 
+.grid a, .grid2 a{   /* links in both grids get same styling */
   display:block; 
   text-decoration:none; 
   color:#fff; 
   padding:10px; 
-  border:2px solid #fff; 
-  width:150px;
+  border:2px solid #4e1caa; 
+  width:150px; /* size of the square */
   transition: transform 0.2s;
 }
 
-.grid a:hover{ 
+.grid a:hover, .grid2 a:hover{ 
   transform: scale(1.05); 
 }
 
-.grid img{ 
-  width:150px; 
-  height:150px;  /* force square! */
-  object-fit:cover; 
+.grid img, .grid2 img{ 
+  width:100%; /* fill the square container */
+  height:150px; /* force height = width to keep square shape */
+  object-fit:cover; /* crop/scale without distortion */
   margin-bottom:5px;
 }
