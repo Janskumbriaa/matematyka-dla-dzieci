@@ -89,9 +89,10 @@ h1 {
   height: calc(100% + 10px);
   border-radius: 20px;
   background: var(--main-color);
-  opacity: 0.15; /* subtle glow */
+  opacity: 0.15; /* subtle base glow */
   filter: blur(15px);
   z-index: -1; /* behind box */
+  transition: opacity 0.3s, transform 0.3s;
 }
 
 /* box itself */
@@ -109,6 +110,12 @@ h1 {
 .grid .game-box a:hover {
   transform: scale(1.05);
   box-shadow: 0 0 25px var(--main-color);
+}
+
+/* pulse the glow aura on hover */
+.grid .game-box:hover::before {
+  opacity: 0.3;
+  transform: scale(1.1);
 }
 
 /* image fills box */
