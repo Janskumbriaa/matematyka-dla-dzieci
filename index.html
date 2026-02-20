@@ -5,63 +5,48 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>matematyka dla dzieci</h1>
 
-  <div class="grid-wrapper">
-    <div class="grid">
-      <!-- row 1 -->
-      <div class="game-box">
-        <a href="deeeep.io.html">
-          <img src="thumb-deeeep.png" alt="deeeep.io thumbnail">
-        </a>
-        <p>deeeep.io</p>
-      </div>
+<div class="bg-dots"></div>
 
-      <div class="game-box">
-        <a href="mope.io.html">
-          <img src="thumb-mope.io.png" alt="mope.io thumbnail">
-        </a>
-        <p>mope.io</p>
-      </div>
+<div class="title-island">
+  matematyka dla dzieci
+</div>
 
-      <div class="game-box">
-        <a href="five-nights-at-epsteins.html">
-          <img src="thumb-five-nights-at-freddies.png" alt="Five Nights at Freddies thumbnail">
-        </a>
-        <p>Five Nights at Epsteins</p>
-      </div>
+<div class="tabs-island">
+  <button class="tab active" onclick="switchTab('gry')">gry</button>
+  <button class="tab" onclick="switchTab('strony')">strony</button>
+</div>
 
-      <div class="game-box">
-        <a href="paper-io-3.html">
-          <img src="thumb-paper-io-3.png" alt="Paper IO 3 thumbnail">
-        </a>
-        <p>Paper IO 3</p>
-      </div>
+<!-- GAMES GRID -->
+<div id="gry" class="grid active-grid">
 
-      <!-- row 2 -->
-      <div class="game-box">
-        <a href="slither-io.html">
-          <img src="thumb-slither-io.png" alt="Slither IO thumbnail">
-        </a>
-        <p>Slither IO</p>
-      </div>
+  <!-- your existing game boxes -->
+  <!-- example structure -->
+  <a href="slither-io.html" class="game">
+    <img src="thumb-slither.png">
+    <div class="game-title">slither.io</div>
+  </a>
 
-    </div>
-  </div>
+  <!-- add the rest of your games here -->
+</div>
 
-  <!-- floating dots background -->
-  <script>
-    const dotCount = 30;
-    for(let i=0; i<dotCount; i++){
-      const dot = document.createElement('div');
-      dot.className = 'dot';
-      dot.style.left = Math.random()*100 + 'vw';
-      const duration = 5 + Math.random()*10;
-      dot.style.animationDuration = `${duration}s, ${1+Math.random()*3}s`;
-      const size = 5 + Math.random()*10;
-      dot.style.width = dot.style.height = size + 'px';
-      document.body.appendChild(dot);
-    }
-  </script>
+<!-- STRONY GRID -->
+<div id="strony" class="grid">
+
+  <!-- empty for now or add website boxes -->
+  <div class="placeholder">tu beda strony</div>
+
+</div>
+
+<script>
+function switchTab(tabId) {
+  document.querySelectorAll('.tab').forEach(btn => btn.classList.remove('active'));
+  document.querySelectorAll('.grid').forEach(grid => grid.classList.remove('active-grid'));
+
+  document.getElementById(tabId).classList.add('active-grid');
+  event.target.classList.add('active');
+}
+</script>
+
 </body>
 </html>
