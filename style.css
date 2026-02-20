@@ -1,146 +1,120 @@
 :root {
-  --main-color: #637ceb; /* main blue color */
-}
-
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+  --main-color: #637ceb;
 }
 
 body {
-  font-family: sans-serif;
+  margin: 0;
   background: #1c1b1b;
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  font-family: sans-serif;
+  overflow-x: hidden;
   position: relative;
+}
+
+/* background dots */
+.bg-dots {
+  position: fixed;
+  inset: 0;
   z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 20% 80%, #637ceb33 2px, transparent 3px),
+              radial-gradient(circle at 70% 30%, #637ceb33 2px, transparent 3px),
+              radial-gradient(circle at 40% 60%, #637ceb33 2px, transparent 3px);
+  background-size: 200px 200px;
+  animation: floatDots 20s linear infinite;
 }
 
-/* floating dots background */
-.dot {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: var(--main-color);
-  border-radius: 50%;
-  opacity: 0.8;
-  box-shadow: 0 0 10px var(--main-color), 0 0 15px var(--main-color);
-  animation: floatUp linear infinite, twinkle 2s ease-in-out infinite;
-  z-index: 0;
+@keyframes floatDots {
+  from { background-position: 0 0; }
+  to { background-position: 0 -200px; }
 }
 
-@keyframes floatUp {
-  0% { transform: translateY(100vh) scale(0.5); opacity: 0.4; }
-  50% { opacity: 0.8; }
-  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
-}
-
-@keyframes twinkle {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 0.9; }
-}
-
-/* floating page title pill */
-h1 {
-  margin: 30px 0;
+/* islands */
+.title-island {
+  margin: 40px auto 20px auto;
+  padding: 15px 40px;
   background: #161515;
-  padding: 15px 30px;
-  border-radius: 25px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-  z-index: 1;
+  color: white;
+  border-radius: 40px;
+  width: fit-content;
+  font-size: 28px;
+  font-weight: bold;
+  border: 4px solid var(--main-color);
   position: relative;
+  z-index: 2;
 }
 
-/* wrapper to center the grid */
-.grid-wrapper {
+.tabs-island {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex: 1;
-  width: 100%;
-  z-index: 1;
+  gap: 15px;
+  background: #161515;
+  width: fit-content;
+  margin: 0 auto 30px auto;
+  padding: 10px 20px;
+  border-radius: 40px;
+  border: 4px solid var(--main-color);
   position: relative;
+  z-index: 2;
 }
 
-/* grid container - 5 games per row */
+.tab {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.tab.active {
+  background: var(--main-color);
+}
+
+.tab:hover {
+  transform: scale(1.05);
+}
+
+/* grids */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(5, 150px);
-  gap: 30px;
+  display: none;
+  grid-template-columns: repeat(5, 200px);
+  gap: 25px;
   justify-content: center;
-  align-items: start;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 60px;
 }
 
-/* each game box container */
-.grid .game-box {
+.active-grid {
+  display: grid;
+}
+
+/* game box */
+.game {
   display: flex;
   flex-direction: column;
+  text-decoration: none;
   align-items: center;
-  position: relative;
 }
 
-/* glow aura behind the box */
-.grid .game-box::before {
-  content: '';
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  width: calc(100% + 10px);
-  height: calc(100% + 10px);
-  border-radius: 20px;
-  background: var(--main-color);
-  opacity: 0.15; /* subtle base glow */
-  filter: blur(15px);
-  z-index: -1; /* behind box */
-  transition: opacity 0.3s, transform 0.3s;
-}
-
-/* box itself */
-.grid .game-box a {
-  position: relative; /* fix so image fills box */
-  display: block;
-  width: 150px;
-  height: 150px;
-  border: 4px solid var(--main-color);
-  border-radius: 15px;
-  overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.3s;
-  z-index: 1;
-}
-
-.grid .game-box a:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px var(--main-color);
-}
-
-/* pulse the glow aura on hover */
-.grid .game-box:hover::before {
-  opacity: 0.3;
-  transform: scale(1.1);
-}
-
-/* image fills box completely */
-.grid .game-box a img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+.game img {
+  width: 200px;
+  height: 200px;
   object-fit: cover;
-  border-radius: 0; /* remove radius so it fills entire box */
+  border-radius: 20px;
+  border: 6px solid var(--main-color);
+  box-sizing: border-box;
 }
 
-/* title under the box */
-.grid .game-box p {
-  margin-top: 8px;
-  text-align: center;
-  color: #fff;
-  font-weight: bold;
-  z-index: 1;
-  position: relative;
+.game-title {
+  margin-top: 10px;
+  color: white;
+  font-weight: 600;
+}
+
+.placeholder {
+  color: white;
+  font-size: 18px;
 }
